@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SUPIR.iml" filepath="$PROJECT_DIR$/.idea/SUPIR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../DELIVERY/laneline_gen/.idea/laneline_gen.iml" filepath="$PROJECT_DIR$/../DELIVERY/laneline_gen/.idea/laneline_gen.iml" />
     </modules>
   </component>
 </project>

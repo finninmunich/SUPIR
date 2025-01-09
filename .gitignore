@@ -1,0 +1,6 @@
+# normal ignore files
+*.log
+*.DS_Store
+.idea/
+delivery_trainlist/
+test_data/

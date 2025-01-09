@@ -4,7 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Remote Python 3.8.16 (sftp://root@172.26.1.102:25197/root/anaconda3/envs/DiffGLV/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="transformers" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="laneline_gen" />
   </component>
 </module>

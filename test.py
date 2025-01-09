@@ -6,7 +6,7 @@ from llava.llava_agent import LLavaAgent
 from CKPT_PTH import LLAVA_MODEL_PATH
 import os
 from torch.nn.functional import interpolate
-
+import time
 if torch.cuda.device_count() >= 2:
     SUPIR_device = 'cuda:0'
     LLaVA_device = 'cuda:1'
@@ -42,9 +42,9 @@ parser.add_argument("--n_prompt", type=str,
                             'worst quality, low quality, frames, watermark, signature, jpeg artifacts, '
                             'deformed, lowres, over-smooth')
 parser.add_argument("--color_fix_type", type=str, default='Wavelet', choices=["None", "AdaIn", "Wavelet"])
-parser.add_argument("--linear_CFG", action='store_true', default=True)
+parser.add_argument("--linear_CFG", action='store_true', default=False)
 parser.add_argument("--linear_s_stage2", action='store_true', default=False)
-parser.add_argument("--spt_linear_CFG", type=float, default=4.0)
+parser.add_argument("--spt_linear_CFG", type=float, default=1.0)
 parser.add_argument("--spt_linear_s_stage2", type=float, default=0.)
 parser.add_argument("--ae_dtype", type=str, default="bf16", choices=['fp32', 'bf16'])
 parser.add_argument("--diff_dtype", type=str, default="fp16", choices=['fp32', 'fp16', 'bf16'])
@@ -93,13 +93,16 @@ for img_pth in os.listdir(args.img_dir):
     else:
         captions = ['']
     print(captions)
-
+    print(f"processing {img_name} with caption: {captions}")
+    time_start = time.time()
     # # step 3: Diffusion Process
     samples = model.batchify_sample(LQ_img, captions, num_steps=args.edm_steps, restoration_scale=args.s_stage1, s_churn=args.s_churn,
                                     s_noise=args.s_noise, cfg_scale=args.s_cfg, control_scale=args.s_stage2, seed=args.seed,
                                     num_samples=args.num_samples, p_p=args.a_prompt, n_p=args.n_prompt, color_fix_type=args.color_fix_type,
                                     use_linear_CFG=args.linear_CFG, use_linear_control_scale=args.linear_s_stage2,
                                     cfg_scale_start=args.spt_linear_CFG, control_scale_start=args.spt_linear_s_stage2)
+    time_end = time.time()
+    print(f"Time taken to generate samples for {img_name}: {time_end - time_start} s ")
     # save
     for _i, sample in enumerate(samples):
         Tensor2PIL(sample, h0, w0).save(f'{args.save_dir}/{img_name}_{_i}.png')

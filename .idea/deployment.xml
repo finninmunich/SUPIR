@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="iag_wuwei4" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="root@172.26.1.102:25197 password">
+      <paths name="iag_c1">
         <serverdata>
           <mappings>
-            <mapping deploy="/opt/data/private/code/SUPIR" local="$PROJECT_DIR$" web="/" />
-            <mapping deploy="/opt/data/private/code/LLaVA" local="$PROJECT_DIR$/../LLaVA-main" web="" />
+            <mapping deploy="/SUPIR" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/SUPIR/delivery_trainlist" />
+            <excludedPath path="/SUPIR/results-F" />
+            <excludedPath path="/SUPIR/results-Q" />
+            <excludedPath path="/SUPIR/test_data" />
+            <excludedPath path="/SUPIR/trainlist" />
+          </excludedPaths>
         </serverdata>
       </paths>
-      <paths name="root@172.26.1.102:25954 password">
+      <paths name="iag_wuwei4">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/finn/DELIVERY/SUPIR" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/data_to_process" />
+            <excludedPath local="true" path="$PROJECT_DIR$/delivery_trainlist" />
+            <excludedPath local="true" path="$PROJECT_DIR$/test_data" />
+            <excludedPath path="/finn/DELIVERY/SUPIR/data_to_process" />
+            <excludedPath path="/finn/DELIVERY/SUPIR/delivery_trainlist" />
+            <excludedPath path="/finn/DELIVERY/SUPIR/test_data" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="iagfj_v2">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/finn/DELIVERY/SUPIR" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/finn/DELIVERY/SUPIR/results-Q" />
+            <excludedPath local="true" path="$PROJECT_DIR$/results-Q" />
+            <excludedPath local="true" path="$PROJECT_DIR$/test_data" />
+            <excludedPath path="/finn/DELIVERY/SUPIR/test_data" />
+            <excludedPath local="true" path="$PROJECT_DIR$/delivery_trainlist" />
+            <excludedPath path="/finn/DELIVERY/SUPIR/delivery_trainlist" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
